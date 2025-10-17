@@ -24,9 +24,19 @@
     combos {
         compatible = "zmk,combos";
 
-        first {
+        escape {
             bindings = <&kp ESC>;
             key-positions = <11 12 13>;
+        };
+
+        copy {
+            bindings = <&kp LC(C)>;
+            key-positions = <16 17>;
+        };
+
+        paste {
+            bindings = <&kp LC(V)>;
+            key-positions = <17 18>;
         };
     };
 

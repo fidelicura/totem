@@ -38,27 +38,23 @@
             bindings = <&kp LC(V)>;
             key-positions = <17 18>;
         };
+
+        roundy {
+            bindings = <&td_brack>;
+            key-positions = <37>;
+        };
     };
 
     behaviors {
-        ss_hs_modmorph: ss_hs_modmorph {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SS_HS_MODMORPH";
-            bindings = <&kp M>, <&kp RIGHT_BRACKET>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        kh_hs_tapdance: kh_hs_tapdance {
+        td_brack: td_brack {
             compatible = "zmk,behavior-tap-dance";
-            label = "KH_HS_TAPDANCE";
+            label = "TD_BRACK";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
         };
 
-        hrm: hrm {
+        hold_tap: hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
@@ -66,6 +62,16 @@
             quick-tap-ms = <200>;
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
+
+            label = "HOLD_TAP";
+        };
+
+        td_paren: td_paren {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_PAREN";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
         };
     };
 
@@ -75,10 +81,10 @@
         base {
             label = "BASE";
             bindings = <
-           &kp Q         &kp W         &kp E         &kp R        &kp T        &kp Y        &kp U            &kp I         &kp O         &kp P
-           &hrm LCTRL A  &hrm LSHFT S  &hrm LMETA D  &hrm LALT F  &kp G        &kp H        &hrm RALT J      &hrm RMETA K  &hrm RSHFT L  &hrm RCTRL SEMICOLON
-&kp TILDE  &kp Z         &kp X         &kp C         &kp V        &kp B        &kp N        &kp M            &kp COMMA     &kp DOT       &kp FSLH              &kp SQT
-                                       &lt 4 ESCAPE  &lt 1 SPACE  &lt 2 TAB    &lt 3 ENTER  &lt 1 BACKSPACE  &lt 4 DELETE
+           &kp Q              &kp W              &kp E              &kp R             &kp T        &kp Y        &kp U             &kp I              &kp O              &kp P
+           &hold_tap LCTRL A  &hold_tap LSHFT S  &hold_tap LMETA D  &hold_tap LALT F  &kp G        &kp H        &hold_tap RALT J  &hold_tap RMETA K  &hold_tap RSHFT L  &hold_tap RCTRL SEMICOLON
+&kp TILDE  &kp Z              &kp X              &kp C              &kp V             &kp B        &kp N        &kp M             &kp COMMA          &kp DOT            &kp FSLH                   &kp SQT
+                                                 &td_paren          &lt 1 SPACE       &lt 2 TAB    &lt 3 ENTER  &lt 1 BACKSPACE   &td_brack
             >;
         };
 

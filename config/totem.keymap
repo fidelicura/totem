@@ -46,7 +46,7 @@
             label = "TD_BRACK_OPEN";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LPAR>, <&kp LBRC>, <&kp LBKT>;
+            bindings = <&kp LPAR>, <&kp LBRC>;
         };
 
         hold_tap: hold_tap {
@@ -66,16 +66,36 @@
             label = "TD_BRACK_CLOSE";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings =
-                <&kp RIGHT_PARENTHESIS>,
-                <&kp RIGHT_BRACE>,
-                <&kp RIGHT_BRACKET>;
+            bindings = <&kp RIGHT_PARENTHESIS>, <&kp RIGHT_BRACE>;
         };
 
         td_brack_morph: td_brack_morph {
             compatible = "zmk,behavior-mod-morph";
             label = "TD_BRACK_MORPH";
             bindings = <&td_brack_open>, <&td_brack_close>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        td_arrow_open: td_arrow_open {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_ARROW_OPEN";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN>, <&kp LEFT_BRACKET>;
+        };
+
+        td_arrow_close: td_arrow_close {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_ARROW_CLOSE";
+            #binding-cells = <0>;
+            bindings = <&kp GT>, <&kp RIGHT_BRACKET>;
+        };
+
+        td_arrow_morph: td_arrow_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "TD_ARROW_MORPH";
+            bindings = <&td_arrow_open>, <&td_arrow_close>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -91,7 +111,7 @@
            &kp Q              &kp W              &kp E              &kp R             &kp T        &kp Y        &kp U             &kp I              &kp O              &kp P
            &hold_tap LCTRL A  &hold_tap LSHFT S  &hold_tap LMETA D  &hold_tap LALT F  &kp G        &kp H        &hold_tap RALT J  &hold_tap RMETA K  &hold_tap RSHFT L  &hold_tap RCTRL SEMICOLON
 &kp TILDE  &kp Z              &kp X              &kp C              &kp V             &kp B        &kp N        &kp M             &kp COMMA          &kp DOT            &kp FSLH                   &kp SQT
-                                                 &td_brack_morph    &lt 1 SPACE       &lt 2 TAB    &lt 3 ENTER  &lt 1 BACKSPACE   &trans
+                                                 &td_brack_morph    &lt 1 SPACE       &lt 2 TAB    &lt 3 ENTER  &lt 1 BACKSPACE   &td_arrow_morph
             >;
         };
 

@@ -38,6 +38,11 @@
             bindings = <&kp LC(V)>;
             key-positions = <17 18>;
         };
+
+        equal {
+            bindings = <&kp EQUAL>;
+            key-positions = <34 35>;
+        };
     };
 
     behaviors {
@@ -127,9 +132,9 @@
 
         navi {
             bindings = <
-        &trans     &trans     &trans     &trans    &trans    &trans    &kp PAGE_DOWN  &kp PG_UP     &trans     &trans
-        &kp LCTRL  &kp LSHFT  &kp LMETA  &kp LALT  &trans    &kp LEFT  &kp DOWN       &kp UP        &kp RIGHT  &kp C_MUTE
-&trans  &trans     &trans     &trans     &trans    &trans    &trans    &kp C_VOL_DN   &kp C_VOL_UP  &trans     &trans      &trans
+        &trans     &trans     &trans     &trans    &trans    &trans    &kp PAGE_DOWN  &kp PG_UP  &trans     &trans
+        &kp LCTRL  &kp LSHFT  &kp LMETA  &kp LALT  &trans    &kp LEFT  &kp DOWN       &kp UP     &kp RIGHT  &trans
+&trans  &trans     &trans     &trans     &trans    &trans    &trans    &trans         &trans     &trans     &trans  &trans
                               &trans     &trans    &trans    &trans    &trans         &trans
             >;
 
@@ -149,10 +154,10 @@
         func {
             label = "ADJU";
             bindings = <
-        &kp F12  &kp F7  &kp F8  &kp F9  &trans    &bt BT_CLR  &bt BT_NXT  &bt BT_PRV  &out OUT_TOG  &trans
-        &kp F11  &kp F4  &kp F5  &kp F6  &trans    &trans      &kp RALT    &kp RMETA   &kp RSHFT     &kp RCTRL
-&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans    &trans      &trans      &trans      &trans        &trans     &trans
-                         &trans  &trans  &trans    &trans      &trans      &trans
+        &kp F12  &kp F7  &kp F8  &kp F9  &trans    &bt BT_CLR  &bt BT_NXT       &bt BT_PRV         &out OUT_TOG  &trans
+        &kp F11  &kp F4  &kp F5  &kp F6  &trans    &trans      &kp RALT         &kp RMETA          &kp RSHFT     &kp RCTRL
+&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans    &kp K_MUTE  &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &trans        &trans     &trans
+                         &trans  &trans  &trans    &trans      &trans           &trans
             >;
         };
     };

@@ -41,12 +41,12 @@
     };
 
     behaviors {
-        td_brack: td_brack {
+        td_brack_open: td_brack_open {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_BRACK";
+            label = "TD_BRACK_OPEN";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
+            bindings = <&kp LPAR>, <&kp LBRC>, <&kp LBKT>;
         };
 
         hold_tap: hold_tap {
@@ -61,12 +61,24 @@
             label = "HOLD_TAP";
         };
 
-        td_paren: td_paren {
+        td_brack_close: td_brack_close {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_PAREN";
+            label = "TD_BRACK_CLOSE";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
+            bindings =
+                <&kp RIGHT_PARENTHESIS>,
+                <&kp RIGHT_BRACE>,
+                <&kp RIGHT_BRACKET>;
+        };
+
+        td_brack_morph: td_brack_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "TD_BRACK_MORPH";
+            bindings = <&td_brack_open>, <&td_brack_close>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
@@ -79,7 +91,7 @@
            &kp Q              &kp W              &kp E              &kp R             &kp T        &kp Y        &kp U             &kp I              &kp O              &kp P
            &hold_tap LCTRL A  &hold_tap LSHFT S  &hold_tap LMETA D  &hold_tap LALT F  &kp G        &kp H        &hold_tap RALT J  &hold_tap RMETA K  &hold_tap RSHFT L  &hold_tap RCTRL SEMICOLON
 &kp TILDE  &kp Z              &kp X              &kp C              &kp V             &kp B        &kp N        &kp M             &kp COMMA          &kp DOT            &kp FSLH                   &kp SQT
-                                                 &td_paren          &lt 1 SPACE       &lt 2 TAB    &lt 3 ENTER  &lt 1 BACKSPACE   &td_brack
+                                                 &td_brack_morph    &lt 1 SPACE       &lt 2 TAB    &lt 3 ENTER  &lt 1 BACKSPACE   &trans
             >;
         };
 
